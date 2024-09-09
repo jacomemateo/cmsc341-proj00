@@ -1,0 +1,10 @@
+[32;1m[ PASSED ][0m	Constructor Error Case
+[32;1m[ PASSED ][0m	Constructor Normal Case
+[32;1m[ PASSED ][0m	New Board Error Case
+[32;1m[ PASSED ][0m	New Board Normal Case
+[32;1m[ PASSED ][0m	Change Board Same Shape
+[32;1m[ PASSED ][0m	Change Board Different Shape
+[32;1m[ PASSED ][0m	Play Normal Move
+[32;1m[ PASSED ][0m	Play Error Move
+[32;1m[ PASSED ][0m	Copy Constructor Error Case
+[32;1m[ PASSED ][0m	Copy Constructor Normal Case
