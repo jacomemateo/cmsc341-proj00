@@ -1,0 +1,4 @@
+/Users/mateo/Code/school/cmse341/projects/project_0/cmake-build-debug/CMakeFiles/project_0.dir
+/Users/mateo/Code/school/cmse341/projects/project_0/cmake-build-debug/CMakeFiles/mytest.dir
+/Users/mateo/Code/school/cmse341/projects/project_0/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/mateo/Code/school/cmse341/projects/project_0/cmake-build-debug/CMakeFiles/rebuild_cache.dir
