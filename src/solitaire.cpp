@@ -170,8 +170,6 @@ int Solitaire::reportNumMarbles(){
 }
 
 void Solitaire::initializeMemoryBoard() {
-    clear();
-
     m_board = new int* [m_numRows];
 
     for(int i=0; i<m_numRows; i++) {
@@ -224,7 +222,7 @@ bool Solitaire::initializeMemberVariables(BOARDSHAPE shape) {
             m_numRows = 0;
             m_numColumns = 0;
             m_numMarbles = 0;
-            m_board == nullptr;
+            m_board = nullptr;
             return false;
     }
     return true;
