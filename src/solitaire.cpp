@@ -25,7 +25,7 @@ const pair<int, int> empty_spaces_diamond[10] = {
 Solitaire::Solitaire() : m_numRows(0), m_numColumns(0), m_board(nullptr), m_shape(NONE), m_numMarbles(0) {}
 
 // Initializes all member variables and it allocates required memory if necessary.
-Solitaire::Solitaire(BOARDSHAPE shape) {
+Solitaire::Solitaire(BOARDSHAPE shape) : m_board(nullptr) {
     init(shape);
 }
 
@@ -171,10 +171,12 @@ int Solitaire::reportNumMarbles(){
 }
 
 void Solitaire::initializeMemoryBoard() {
-    m_board = new int* [m_numRows];
+    if(m_board == nullptr) {
+        m_board = new int *[m_numRows];
 
-    for(int i=0; i<m_numRows; i++) {
-        m_board[i] = new int[m_numColumns];
+        for (int i = 0; i < m_numRows; i++) {
+            m_board[i] = new int[m_numColumns];
+        }
     }
 }
 
@@ -205,7 +207,7 @@ void Solitaire::populateBoard(const pair<int, int> void_positions[], size_t size
     m_board[m_numRows/2][m_numColumns/2] = HOLE;
 }
 
-bool Solitaire::initializeMemberVariables(BOARDSHAPE shape) {
+void Solitaire::initializeMemberVariables(BOARDSHAPE shape) {
     // Self explanatory
     switch (shape) {
         case ENGLISH:
@@ -223,10 +225,7 @@ bool Solitaire::initializeMemberVariables(BOARDSHAPE shape) {
             m_numRows = 0;
             m_numColumns = 0;
             m_numMarbles = 0;
-            m_board = nullptr;
-            return false;
     }
-    return true;
 }
 
 void Solitaire::setupBoard(BOARDSHAPE shape) {
@@ -248,10 +247,10 @@ void Solitaire::init(BOARDSHAPE shape) {
     m_shape = shape;
 
     // Functions create empty object if non-supported shape is provided
-    if(initializeMemberVariables(shape)) {
-        initializeMemoryBoard();
-        setupBoard(shape);
-    } // Else we don't have to do anything since a false
+    initializeMemberVariables(shape);
+    initializeMemoryBoard();
+    setupBoard(shape);
+    // Else we don't have to do anything since a false
     // result would mean that an invalid shape was passed
     // so no memory needs to be allocated as `initializeMemberVariables`
     // already sets board to nullptr if the shape is invalid.
