@@ -1,6 +1,12 @@
 // UMBC - CMSC 341 - Fall 2024 - Proj0
 #include "solitaire.h"
 
+// Since most of the boards is just marbles I decided
+// to first fill the board with marbles and then
+// remove the OUT spaces using these 2d arrays with
+// the location of the OUT spaces in one corner of the
+// map, to fill in this to the other corners i just
+// reflected it fr.
 const pair<int, int> empty_spaces_english[4] = {
         make_pair(0, 0),
         make_pair(0, 1),
@@ -30,16 +36,17 @@ Solitaire::Solitaire(BOARDSHAPE shape) : m_board(nullptr) {
 }
 
 Solitaire::Solitaire(const Solitaire & rhs) {
+    clear();  // Clear the current object's board before copying
+
     m_numRows = rhs.m_numRows;
     m_numColumns = rhs.m_numColumns;
     m_shape = rhs.m_shape;
     m_numMarbles = rhs.m_numMarbles;
 
-
+    // Kinda redundant to check since we just cleared the board but just in case :)
     if(rhs.m_board == nullptr) {
         m_board = nullptr;
-    }
-    else {
+    } else {
         m_board = new int* [m_numRows];
 
         for(int i=0; i<m_numRows; i++) {
@@ -79,10 +86,10 @@ void Solitaire::clear() {
 bool Solitaire::play(pair<int,int> origin, pair<int,int> destination){
     // Bound checking for the 2d array
     if(
-        origin.first < 0 || origin.first > m_numColumns ||
-        origin.second < 0 || origin.second > m_numRows ||
-        destination.first < 0 || destination.first > m_numColumns ||
-        destination.second < 0 || destination.second > m_numColumns
+        origin.first < 0 || origin.first >= m_numRows ||
+        origin.second < 0 || origin.second >= m_numColumns ||
+        destination.first < 0 || destination.first >= m_numRows ||
+        destination.second < 0 || destination.second >= m_numColumns
     ) {
         return false;
     }
@@ -165,7 +172,7 @@ void Solitaire::dumpBoard() {
 }
 
 int Solitaire::reportNumMarbles(){
-    // this is to facilitate debugging 
+    // this is to facilitate debugging
     cout << "You have " << m_numMarbles << " marbles to remove!" << endl;
     return m_numMarbles;
 }
