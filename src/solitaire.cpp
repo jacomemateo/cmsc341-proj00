@@ -183,7 +183,6 @@ void Solitaire::initializeMemoryBoard() {
 void Solitaire::populateBoard(const pair<int, int> void_positions[], size_t size) {
     // Fill the board with marbles since it's the majority of what makes up the board.
     for(int i=0; i<m_numRows; i++) {
-        m_board[i] = new int[m_numColumns];
         for(int j=0; j<m_numColumns; j++) {
             m_board[i][j] = MARBLE;
         }
