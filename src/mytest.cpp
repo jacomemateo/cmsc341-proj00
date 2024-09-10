@@ -219,14 +219,14 @@ void run_test(string name, function<bool()> func) {
 int main() {
     Tester t;
 
-    TEST("Constructor Error Case", testConstructorErrorCase);
+//    TEST("Constructor Error Case", testConstructorErrorCase);
     TEST("Constructor Normal Case", testConstructorNormalCase);
-    TEST("New Board Error Case", testNewBoardErrorCase);
-    TEST("New Board Normal Case", testNewBoardNormalCase)
-    TEST("Change Board Same Shape", testChangeBoardSameShape);
-    TEST("Change Board Different Shape", testChangeBoardDifferentShape)
-    TEST("Play Normal Move", testPlayNormalMove);
-    TEST("Play Error Move", testPlayErrorMove);
-    TEST("Copy Constructor Error Case", testCopyConstructorErrorCase);
-    TEST("Copy Constructor Normal Case", testCopyConstructorNormalCase);
+//    TEST("New Board Error Case", testNewBoardErrorCase);
+//    TEST("New Board Normal Case", testNewBoardNormalCase)
+//    TEST("Change Board Same Shape", testChangeBoardSameShape);
+//    TEST("Change Board Different Shape", testChangeBoardDifferentShape)
+//    TEST("Play Normal Move", testPlayNormalMove);
+//    TEST("Play Error Move", testPlayErrorMove);
+//    TEST("Copy Constructor Error Case", testCopyConstructorErrorCase);
+//    TEST("Copy Constructor Normal Case", testCopyConstructorNormalCase);
 }

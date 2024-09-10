@@ -62,6 +62,7 @@ void Solitaire::clear() {
     if(m_board != nullptr) {
         for (int i = 0; i < m_numRows; i++) {
             delete[] m_board[i];
+            m_board[i] = nullptr;
         }
 
         delete[] m_board;
