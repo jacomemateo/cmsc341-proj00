@@ -50,7 +50,7 @@ private:
     void setupBoard(BOARDSHAPE shape);
 
     // Self-explanatory
-    void initializeMemberVariables(BOARDSHAPE shape);
+    bool initializeMemberVariables(BOARDSHAPE shape);
 
     // Places pieces on board
     void populateBoard(const pair<int, int> void_positions[], size_t size);

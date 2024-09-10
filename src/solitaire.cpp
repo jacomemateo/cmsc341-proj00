@@ -206,7 +206,7 @@ void Solitaire::populateBoard(const pair<int, int> void_positions[], size_t size
     m_board[m_numRows/2][m_numColumns/2] = HOLE;
 }
 
-void Solitaire::initializeMemberVariables(BOARDSHAPE shape) {
+bool Solitaire::initializeMemberVariables(BOARDSHAPE shape) {
     // Self explanatory
     switch (shape) {
         case ENGLISH:
@@ -224,7 +224,9 @@ void Solitaire::initializeMemberVariables(BOARDSHAPE shape) {
             m_numRows = 0;
             m_numColumns = 0;
             m_numMarbles = 0;
+            return false;
     }
+    return true;
 }
 
 void Solitaire::setupBoard(BOARDSHAPE shape) {
@@ -246,9 +248,10 @@ void Solitaire::init(BOARDSHAPE shape) {
     m_shape = shape;
 
     // Functions create empty object if non-supported shape is provided
-    initializeMemberVariables(shape);
-    initializeMemoryBoard();
-    setupBoard(shape);
+    if(initializeMemberVariables(shape)) {
+        initializeMemoryBoard();
+        setupBoard(shape);
+    }
     // Else we don't have to do anything since a false
     // result would mean that an invalid shape was passed
     // so no memory needs to be allocated as `initializeMemberVariables`
